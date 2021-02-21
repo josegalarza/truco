@@ -18,3 +18,9 @@ def test_pop():
     m = Mazo()
     m.pop_carta()
     assert len(m.cartas) == 39
+
+def test_repartir():
+    m = Mazo()
+    j1, j2 = m.repartir_cartas(jugadores=2)
+    assert len(j1) == 3
+    assert len(j2) == 3
