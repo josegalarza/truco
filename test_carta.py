@@ -1,6 +1,6 @@
 import pytest
 
-from carta import Carta
+from .carta import Carta
 
 
 def test_init():
