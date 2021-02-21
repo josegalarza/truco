@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Truco Argentino
 # Interesting read: https://github.com/IAARhub/TrucoAnalytics
+import json
 import random
 
 
@@ -112,6 +113,20 @@ class Deck:
         self.cards = self.__cards[:]
         random.shuffle(self.cards)
 
+    def get_all_deals(self):
+        """Returns a list of all possible deals of 3 cards"""
+        result = []
+        for c1 in self.cards:
+            for c2 in self.cards:
+                if c2 == c1:
+                    continue
+                else:
+                    for c3 in self.cards:
+                        if c3 == c1 or c3 == c2:
+                            continue
+                    else:
+                        result.append((c1,c2,c3))
+        return result
 
 class Player:
     def __init__(self, name):
@@ -175,3 +190,47 @@ def demo():
 
 if __name__ == "__main__":
     demo()
+
+
+
+
+def rank_manos_2_jugadores():
+    results = {}
+
+    # iter all possible deals of 3 cards
+    posible = deck.get_all_possible_hands()  # [ (Card(), Card(), Card()), ... ]
+    for p1_mano in posible:
+        for p2_mano in posible:
+            if p1_mano == p2_mano:
+                pass  # can't happen
+
+            # init mano results
+            if not results.get(p1_mano):
+                results[p1_mano] = {
+                    "cartas": p1_mano,
+                    "mano": {"envido": 0, "truco": 0},  # veces que esta mano gana envido/truco siendo mano
+                    "pie": {"envido": 0, "truco": 0}    # veces que esta mano gana envido/truco siendo pie
+                }
+            if not results.get(p2_mano):
+                results[p2_mano] = {
+                    "cartas": p2_mano,
+                    "mano": {"envido": 0, "truco": 0},
+                    "pie": {"envido": 0, "truco": 0}
+                }
+
+            # update mano results - envido
+            if quien_gana_envido(p1_mano, p2_mano) == p1__mano:  # if p1_mano.get_envido_puntos() >= p2_mano.get_envido_puntos():
+                results[p1_mano]["mano"]["envido"] += 1
+            else:
+                results[p2_mano]["pie"]["envido"] += 1
+
+            # update mano results - truco
+            if quien_gana_truco(p1_mano, p2_mano) == p1__mano:
+                results[p1_mano]["mano"]["truco"] += 1
+            else:
+                results[p2_mano]["pie"]["truco"] += 1
+
+
+    # save results
+    with open("results.json") as f:
+        f.write(mano, json.dumps(results))
