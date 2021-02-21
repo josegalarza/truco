@@ -1,4 +1,3 @@
-from carta import Carta
 from mazo import Mazo
 
 
@@ -15,5 +14,5 @@ def test_mezclar():
 
 def test_pop():
     m = Mazo()
-    c = m.pop_carta()
+    m.pop_carta()
     assert len(m.cartas) == 39
