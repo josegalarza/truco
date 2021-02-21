@@ -1,4 +1,4 @@
-from mazo import Mazo
+from .mazo import Mazo
 
 
 def test_init():
