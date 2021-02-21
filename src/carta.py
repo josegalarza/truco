@@ -6,6 +6,10 @@ class Carta:
             self.palo = palo
         else:
             raise ValueError("Carta invalida")
+            
+            
+            
+            jgvjhbkjnm;l,;l
 
     def __str__(self):
         return f"{self.numero}{self.palo[0]}"
