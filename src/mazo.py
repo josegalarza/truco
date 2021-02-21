@@ -16,6 +16,8 @@ class Mazo:
         """Shuffles the cards in the deck"""
         self._init_cartas()
         random.shuffle(self.cartas)
+        random.shuffle(self.cartas)
+        random.shuffle(self.cartas)
 
     def pop_carta(self) -> Carta:
         """Returns a card from the deck, None if deck is empty"""
