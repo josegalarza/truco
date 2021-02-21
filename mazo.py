@@ -1,6 +1,6 @@
 import random
 
-from .carta import Carta
+from carta import Carta
 
 
 class Mazo:
