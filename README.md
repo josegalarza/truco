@@ -1,4 +1,4 @@
-![Build Status](https://github.com/josegalarza/truco/workflows/python-app/badge.svg)
+![Build Status](https://github.com/josegalarza/truco/workflows/pytest/badge.svg)
 
 # truco
 Truco Argentino
