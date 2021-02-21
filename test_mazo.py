@@ -1,5 +1,5 @@
-from .carta import Carta
-from .mazo import Mazo
+from carta import Carta
+from mazo import Mazo
 
 
 def test_init():
