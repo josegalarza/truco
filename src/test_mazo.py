@@ -10,6 +10,8 @@ def test_init():
 def test_mezclar():
     m = Mazo()
     m.mezclar()
+    m.mezclar()
+    m.mezclar()
     assert m.cartas[0].get_id() != "1e"
 
 def test_pop():
