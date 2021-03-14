@@ -9,12 +9,12 @@ def test_init():
 
 
 def test_mezclar():
+    # After mezclar at least 1 carta is on a different position.
     m = Mazo()
     before = m.cartas[:]
     m.mezclar()
     after = m.cartas
     for c1, c2 in zip(before, after):
-        # at least 1 card is on a different position.
         if c1.get_id() != c2.get_id():
             assert True
             return
