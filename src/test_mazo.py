@@ -9,22 +9,22 @@ def test_init():
 
 
 def test_mezclar():
-    # After mezclar at least 1 carta is on a different position.
     m = Mazo()
     before = m.cartas[:]
     m.mezclar()
     after = m.cartas
     for c1, c2 in zip(before, after):
         if c1.get_id() != c2.get_id():
-            assert True
+            assert True  # After mezclar, at least 1 carta is on a different position.
             return
     assert False
 
 
 def test_pop():
     m = Mazo()
+    before = len(m.cartas)
     m.pop_carta()
-    assert len(m.cartas) == 39
+    assert len(m.cartas) == before - 1
 
 
 def test_repartir():
