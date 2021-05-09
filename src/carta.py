@@ -1,7 +1,9 @@
 class Carta:
     def __init__(self, numero: int, palo: str):
-        if numero in (1, 2, 3, 4, 5, 6, 7, 10, 11, 12) \
-            and palo in("espada", "basto", "oro", "copa"):
+        if (
+            numero in (1, 2, 3, 4, 5, 6, 7, 10, 11, 12)
+            and palo in("espada", "basto", "oro", "copa")
+        ):
             self.numero = numero
             self.palo = palo
         else:

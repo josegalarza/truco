@@ -6,6 +6,7 @@ from .carta import Carta
 def test_init():
     assert Carta(1, "espada") is not None
 
+
 def test_get_truco():
     assert Carta(1, "espada").get_truco() == 1
     assert Carta(1, "basto").get_truco() == 2
@@ -48,15 +49,19 @@ def test_get_truco():
     assert Carta(4, "oro").get_truco() == 14
     assert Carta(4, "copa").get_truco() == 14
 
+
 def test_get_envido():
     assert Carta(7, "oro").get_envido() == 7
+
 
 def test_get_envido_2():
     assert Carta(11, "copa").get_envido() == 0
 
+
 def test_carta_invalida():
     with pytest.raises(ValueError):
         assert Carta(9, "espada")
+
 
 def test_get_id():
     assert Carta(1, "espada").get_id() == "1e"
