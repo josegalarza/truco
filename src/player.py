@@ -29,8 +29,8 @@ class Player:
             raise RuntimeError("Missing cards")
         return sorted(self.cards, key = lambda x: (x.get_truco()))
 
-    def play_card(self, random_choice=False):
-        if random_choice:
+    def play_card(self, autoplay=False):
+        if autoplay:
             card = random.choice(self.cards)
         else:
             print(f"{self.name}, play a card!")
