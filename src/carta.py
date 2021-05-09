@@ -1,7 +1,7 @@
 class Carta:
     def __init__(self, numero: int, palo: str):
         if numero in (1, 2, 3, 4, 5, 6, 7, 10, 11, 12) \
-            and palo in("espadas", "basto", "oro", "copas"):
+            and palo in("espada", "basto", "oro", "copa"):
             self.numero = numero
             self.palo = palo
         else:
@@ -15,11 +15,11 @@ class Carta:
 
     def get_truco(self) -> int:
         """Retorna el ranking en truco de la carta en orden descendente (1 más alta)."""
-        if self.palo == "espadas" and self.numero == 1:
+        if self.palo == "espada" and self.numero == 1:
             return 1
         elif self.palo == "basto" and self.numero == 1:
             return 2
-        elif self.palo == "espadas" and self.numero == 7:
+        elif self.palo == "espada" and self.numero == 7:
             return 3
         elif self.palo == "oro" and self.numero == 7:
             return 4
