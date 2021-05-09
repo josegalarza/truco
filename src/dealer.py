@@ -18,7 +18,6 @@ class Dealer:
         pass
 
     def play(self, autoplay=False):
-        os.system("clear")
         p1 = self.players[0]
         p2 = self.players[1]
         for mano, pie in cycle([(p1, p2), (p2, p1)]):
