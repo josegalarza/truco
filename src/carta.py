@@ -12,7 +12,8 @@ class Carta:
     def __str__(self):
         return f"{self.numero}{self.palo[0]}"
 
-    def get_id(self):
+    def get_id(self) -> str:
+        """Returns the card ID, formatted '{numero}{first_letter_of_palo}'."""
         return str(self)
 
     def get_truco(self) -> int:
