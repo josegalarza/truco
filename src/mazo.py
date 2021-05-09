@@ -8,9 +8,11 @@ class Mazo:
         self._init_cartas()
 
     def _init_cartas(self) -> None:
-        self.cartas = [Carta(numero, palo)
-                       for palo in ("espadas", "basto", "oro", "copas")
-                       for numero in (1, 2, 3, 4, 5, 6, 7, 10, 11, 12)]
+        self.cartas = [
+            Carta(numero, palo)
+            for palo in ("espada", "basto", "oro", "copa")
+            for numero in (1, 2, 3, 4, 5, 6, 7, 10, 11, 12)
+        ]
 
     def mezclar(self) -> None:
         """Shuffles the cards in the deck"""
