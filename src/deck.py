@@ -13,8 +13,9 @@ class Deck:
         ]
 
     def shuffle(self) -> None:
+        """Shuffles the cards in the deck."""
         random.shuffle(self._cards)
 
     def pop(self) -> Card:
-        """Returns a card from the deck, None if deck is empty"""
+        """Returns a card from the deck. Returns None if deck is empty."""
         return self._cards.pop(0) if self._cards else None

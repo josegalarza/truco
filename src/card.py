@@ -18,7 +18,7 @@ class Card:
         return str(self)
 
     def get_truco(self) -> int:
-        """Retorna el ranking en truco de la carta en orden descendente (1 más alta)."""
+        """Return how high the card ranks in the truco game (1 is highest)."""
         if self.suit == "espada" and self.number == 1:
             return 1
         elif self.suit == "basto" and self.number == 1:
@@ -49,5 +49,5 @@ class Card:
             return 14
 
     def get_envido(self) -> int:
-        """Retorna puntos de envido de la carta."""
+        """Return how many points the card has for envido."""
         return self.number if self.number < 10 else 0
