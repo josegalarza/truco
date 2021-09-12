@@ -7,7 +7,7 @@ class Dealer:
         pass
 
     def deal(self, n: int):
-        """Shuffle deck and deal the hand. Returns N hands of 3 cards each."""
+        """Shuffles the deck and deals a hand of 3 cards to N players. Returns a N-sized tuple of 3 Cards."""
         d = Deck()
         d.shuffle()
         deal = tuple([] for _ in range(n))
