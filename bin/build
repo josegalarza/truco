@@ -6,6 +6,8 @@ main() {
   # Set repo root
   local repo_root
   repo_root=$(git rev-parse --show-toplevel)
+  # Check environment
+  "${repo_root}"/bin/check_environment
   # Install env
   pipenv install
   # Test
