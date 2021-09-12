@@ -46,15 +46,15 @@ brew install pyenv
 function check_python() {
   echo "Checking python..."
   if ! command_exists "python" || [[ $(python --version | cut -d ' ' -f 1,2) != "Python 3.9.7" ]]; then
-    local REPO_ROOT
-    REPO_ROOT=$(git rev-parse --show-toplevel)
+    local repo_root
+    repo_root=$(git rev-parse --show-toplevel)
     echo "Please install 'python' programming language (version 3.9.7).
 Link:
 https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-install
 Latest instructions at time of writing:
 pyenv install 3.9.7
 Once installed (or if you already have it installed but not configured as the default version), set the version for this project:
-cd ${REPO_ROOT}/dw/ && pyenv local 3.9.7
+cd ${repo_root}/dw/ && pyenv local 3.9.7
 "
     exit 1
   fi
@@ -99,8 +99,8 @@ brew install bash
 }
 
 main () {
-  local REPO_ROOT
-  REPO_ROOT="$(git rev-parse --show-toplevel)"
+  local repo_root
+  repo_root="$(git rev-parse --show-toplevel)"
   echo "Running checklist of prerequisites for development."
   check_brew
   check_pyenv
