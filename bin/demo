@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Runs a demo
+
+main() {
+  # Set repo root
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel)
+  # Install env
+  pipenv install
+  # Run demo
+  pipenv run python "${repo_root}"/demo.py
+}
+
+main "$@"
