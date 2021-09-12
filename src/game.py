@@ -1,4 +1,4 @@
-from .dealer import Dealer
+from src.dealer import Dealer
 
 
 class Game:

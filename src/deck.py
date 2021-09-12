@@ -1,6 +1,6 @@
 import random
 
-from .card import Card, NUMBERS, SUITS
+from src.card import Card, NUMBERS, SUITS
 
 
 class Deck:
