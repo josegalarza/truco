@@ -50,7 +50,7 @@ function check_python() {
   if ! command_exists "python" || [[ $(python --version | cut -d ' ' -f 1,2) != "Python 3.9.7" ]]; then
     local REPO_ROOT
     REPO_ROOT=$(git rev-parse --show-toplevel)
-    echo "Please install 'python' programming language (version 3.6).
+    echo "Please install 'python' programming language (version 3.9.7).
 Link:
 https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-install
 Latest instructions at time of writing:
