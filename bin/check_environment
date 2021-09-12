@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# development_checklist.sh
 # Runs a pre-flight checklist to ensure that all development dependencies required are available.
 # Guides the user on installation and configuration of missing dependencies.
 
