@@ -11,7 +11,7 @@ main() {
   # Install env
   pipenv install
   # Test
-  pipenv run python -m pytest "${repo_root}"/src
+  "${repo_root}"/bin/test
 }
 
 main "$@"
