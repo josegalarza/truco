@@ -54,9 +54,9 @@ function check_python() {
 Link:
 https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-install
 Latest instructions at time of writing:
-pyenv install 3.7.9
+pyenv install 3.9.7
 Once installed (or if you already have it installed but not configured as the default version), set the version for this project:
-cd ${REPO_ROOT}/dw/ && pyenv local 3.7.9
+cd ${REPO_ROOT}/dw/ && pyenv local 3.9.7
 "
     exit 1
   fi
