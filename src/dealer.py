@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 # Represents the dealer and runner of the game.
 from itertools import cycle
 
 from .mazo import Mazo as Deck
+=======
+from .deck import Deck
+>>>>>>> main
 
 
 class Dealer:
 
+<<<<<<< HEAD
     def __init__(self, players):
         if len(players) != 2:
             raise ValueError("Requires 2 players.")
@@ -156,3 +161,18 @@ class Dealer:
             self.score[pie] += 2
             print(f"{pie.name} won! (+2 points)\n")
             return
+=======
+    def __init__(self):
+        pass
+
+    def deal(self, n: int):
+        """Shuffles the deck and deals a hand of 3 cards to N players. Returns a N-sized tuple of 3 Cards."""
+        d = Deck()
+        d.shuffle()
+        deal = tuple([] for _ in range(n))
+        for _ in range(3):
+            for i in range(n):
+                card = d.pop()
+                deal[i].append(card)
+        return deal
+>>>>>>> main
