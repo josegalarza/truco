@@ -33,7 +33,6 @@ Latest instructions at time of writing:
 function check_pyenv() {
   echo "Checking pyenv..."
   if ! command_exists pyenv; then
-#  if true; then
     echo "Please install 'pyenv' Python version managment.
 Link:
 https://github.com/pyenv/pyenv
