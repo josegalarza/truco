@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+# development_checklist.sh
+# Runs a pre-flight checklist to ensure that all development dependencies required are available.
+# Guides the user on installation and configuration of missing dependencies.
+
+set -eu
+set -o pipefail
+
+# Test whether a command is installed in the current environment
+function command_exists () {
+  if [[ -x "$(command -v "$1")" ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# Check if brew is installed
+function check_brew() {
+  echo "Checking brew..."
+  if ! command_exists brew; then
+    echo "Please install 'brew' package manager.
+Link:
+https://brew.sh/
+Latest instructions at time of writing:
+/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)'
+"
+    exit 1
+  fi
+}
+
+# Check if pyenv is installed
+function check_pyenv() {
+  echo "Checking pyenv..."
+  if ! command_exists pyenv; then
+#  if true; then
+    echo "Please install 'pyenv' Python version managment.
+Link:
+https://github.com/pyenv/pyenv
+Latest instructions at time of writing (MacOS):
+brew install pyenv
+"
+    exit 1
+  fi
+}
+
+# Check if python (and its right version) is installed
+function check_python() {
+  echo "Checking python..."
+  if ! command_exists "python" || [[ $(python --version | cut -d ' ' -f 1,2) != "Python 3.9.7" ]]; then
+    local REPO_ROOT
+    REPO_ROOT=$(git rev-parse --show-toplevel)
+    echo "Please install 'python' programming language (version 3.6).
+Link:
+https://github.com/pyenv/pyenv/blob/master/COMMANDS.md#pyenv-install
+Latest instructions at time of writing:
+pyenv install 3.7.9
+Once installed (or if you already have it installed but not configured as the default version), set the version for this project:
+cd ${REPO_ROOT}/dw/ && pyenv local 3.7.9
+"
+    exit 1
+  fi
+}
+
+# Check if pipenv is installed
+function check_pipenv() {
+  echo "Checking pipenv..."
+  if ! command_exists pipenv; then
+    echo "Please install 'pipenv' Python packages manager.
+Link:
+https://github.com/pypa/pipenv
+Latest instructions at time of writing:
+brew install pipenv
+"
+    exit 1
+  fi
+}
+
+# Check if the repo is up to date
+function check_repo() {
+  echo "Checking repo..."
+  git fetch > /dev/null
+  if [[ "$(git rev-parse HEAD)" != "$(git rev-parse "@{u}")" ]]; then
+    echo "Please update your repo to the latest"
+    exit 1
+  fi
+}
+
+# Check if bash (and its right version) is installed
+function check_bash() {
+  echo "Checking bash..."
+  if ! command_exists "bash" || [[ $(bash --version | head -1 | cut -d ' ' -f 4) != "5."* ]]; then
+    echo "Please install 'bash' Unix shell (version >= 5.0)
+Link:
+https://www.gnu.org/software/bash/
+Latest instructions at time of writing:
+brew install bash
+"
+    exit 1
+  fi
+}
+
+main () {
+  local REPO_ROOT
+  REPO_ROOT="$(git rev-parse --show-toplevel)"
+  echo "Running checklist of prerequisites for development."
+  check_brew
+  check_pyenv
+  check_python
+  check_pipenv
+  check_repo
+  echo "Success! All prerequisites successfully installed."
+}
+
+main "$@"
+
