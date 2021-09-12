@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+main() {
+  # Set repo root
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel)
+  # Run tests
+  pipenv run python -m pytest "${repo_root}"/src
+}
+
+main "$@"
